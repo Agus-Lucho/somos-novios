@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Vernos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+
+    <div class="container-custom">
+        <div class="d-flex flex-column align-items-center justify-content-center min-vh-100 px-3">
+            <div class="title">Faltan</div>
+            
+            <div class="countdown-wrapper">
+                <div class="d-flex align-items-baseline justify-content-center flex-wrap gap-2 gap-md-3">
+                    <div class="d-flex align-items-baseline">
+                        <div class="digit-container">
+                            <span class="digit" id="days-0" data-value="0">0</span>
+                        </div>
+                        <div class="digit-container">
+                            <span class="digit" id="days-1" data-value="0">0</span>
+                        </div>
+                        <span class="label">d</span>
+                    </div>
+                    
+                    <span class="separator">:</span>
+                    
+                    <div class="d-flex align-items-baseline">
+                        <div class="digit-container">
+                            <span class="digit" id="hours-0" data-value="0">0</span>
+                        </div>
+                        <div class="digit-container">
+                            <span class="digit" id="hours-1" data-value="0">0</span>
+                        </div>
+                        <span class="label">h</span>
+                    </div>
+                    
+                    <span class="separator">:</span>
+                    
+                    <div class="d-flex align-items-baseline">
+                        <div class="digit-container">
+                            <span class="digit" id="minutes-0" data-value="0">0</span>
+                        </div>
+                        <div class="digit-container">
+                            <span class="digit" id="minutes-1" data-value="0">0</span>
+                        </div>
+                        <span class="label">m</span>
+                    </div>
+                    
+                    <span class="separator">:</span>
+                    
+                    <div class="d-flex align-items-baseline">
+                        <div class="digit-container">
+                            <span class="digit" id="seconds-0" data-value="0">0</span>
+                        </div>
+                        <div class="digit-container">
+                            <span class="digit" id="seconds-1" data-value="0">0</span>
+                        </div>
+                        <span class="label">s</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="subtitle">
+                para vernos<span class="heart">♡</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
