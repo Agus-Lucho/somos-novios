@@ -1,4 +1,4 @@
-const targetDate = new Date('2026-02-13T21:45:00-03:00');
+const targetDate = new Date('2026-03-08T12:15:00-03:00');
 
 let previousValues = {
     days: '00',
@@ -39,27 +39,6 @@ function morphDigit(element, newDigit) {
 function updateCountdown() {
     const now = new Date();
     const diff = targetDate - now;
-
-    if (diff <= 0) {
-        const values = {
-            days: '00',
-            hours: '00',
-            minutes: '00',
-            seconds: '00'
-        };
-
-        Object.entries(values).forEach(([unit, value]) => {
-            for (let i = 0; i < 2; i++) {
-                const element = document.getElementById(`${unit}-${i}`);
-                const newDigit = value[i];
-                if (previousValues[unit][i] !== newDigit) {
-                    morphDigit(element, newDigit);
-                }
-            }
-            previousValues[unit] = value;
-        });
-        return;
-    }
 
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
