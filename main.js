@@ -39,15 +39,25 @@ function morphDigit(element, newDigit) {
 function updateCountdown() {
     const now = new Date();
     const diff = targetDate - now;
+    const absDiff = Math.abs(diff);
+    const isPast = diff < 0;
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    // Cambia el título/label según si es pasado o futuro
+    const titleEl = document.getElementById('countdown-title'); // ajusta al id real
+    if (titleEl) {
+        titleEl.textContent = isPast
+            ? 'Hace cuánto no nos vemos'
+            : 'Tiempo hasta que nos vemos';
+    }
+
+    const days    = Math.floor(absDiff / (1000 * 60 * 60 * 24));
+    const hours   = Math.floor((absDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((absDiff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((absDiff % (1000 * 60)) / 1000);
 
     const values = {
-        days: String(days).padStart(2, '0'),
-        hours: String(hours).padStart(2, '0'),
+        days:    String(days).padStart(2, '0'),
+        hours:   String(hours).padStart(2, '0'),
         minutes: String(minutes).padStart(2, '0'),
         seconds: String(seconds).padStart(2, '0')
     };
