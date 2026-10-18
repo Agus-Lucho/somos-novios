@@ -1,7 +1,42 @@
+const targetDate = new Date('2026-05-01T18:00:00-03:00');
+
 let previousValues = {
-    years: '00', months: '00', days: '00',
-    hours: '00', minutes: '00', seconds: '00'
+    years: '00',
+    months: '00',
+    days: '00',
+    hours: '00',
+    minutes: '00',
+    seconds: '00'
 };
+
+function morphDigit(element, newDigit) {
+    const timeline = anime.timeline({
+        easing: 'easeInOutQuad',
+        duration: 400
+    });
+
+    timeline
+        .add({
+            targets: element,
+            scaleY: [1, 0.3],
+            scaleX: [1, 1.2],
+            opacity: [1, 0.5],
+            duration: 200,
+            easing: 'easeInQuad'
+        })
+        .add({
+            targets: element,
+            scaleY: [0.3, 1],
+            scaleX: [1.2, 1],
+            opacity: [0.5, 1],
+            duration: 200,
+            easing: 'easeOutQuad',
+            begin: function () {
+                element.textContent = newDigit;
+                element.setAttribute('data-value', newDigit);
+            }
+        }, 200);
+}
 
 function calendarDiff(from, to) {
     let years   = to.getFullYear() - from.getFullYear();
@@ -46,6 +81,7 @@ function updateCountdown() {
         for (let i = 0; i < 2; i++) {
             const element = document.getElementById(`${unit}-${i}`);
             const newDigit = value[i];
+
             if (previousValues[unit][i] !== newDigit) {
                 morphDigit(element, newDigit);
             }
@@ -53,3 +89,6 @@ function updateCountdown() {
         previousValues[unit] = value;
     });
 }
+
+setInterval(updateCountdown, 100);
+updateCountdown();
