@@ -1,4 +1,4 @@
-const targetDate = new Date('2026-03-08T12:15:00-03:00');
+const targetDate = new Date('2026-05-01T18:00:00-03:00');
 
 let previousValues = {
     days: '00',
